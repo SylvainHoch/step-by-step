@@ -91,6 +91,7 @@
       transition: transform .18s ease, box-shadow .18s ease;
     }
     .button:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+    .button:disabled { cursor: wait; opacity: .7; transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
     .button:focus-visible, input:focus-visible, summary:focus-visible { outline: 4px solid #54a6ff; outline-offset: 3px; }
     .button.orange { color: white; background: var(--orange); }
 
@@ -189,6 +190,9 @@
     .form-note { margin: 0; font-size: .82rem; }
     .success { display: none; padding: 18px; border: var(--line); background: var(--yellow); color: var(--ink); font-weight: 900; }
     .success.show { display: block; }
+    .form-error { display: none; padding: 18px; border: var(--line); background: #ffe1da; color: var(--ink); font-weight: 900; }
+    .form-error.show { display: block; }
+    .hp-field { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 
     footer { padding: 78px 0 28px; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; padding-bottom: 46px; border-bottom: var(--line); }
@@ -342,13 +346,16 @@
     <section class="signup" id="inscription">
       <div class="shell signup-box">
         <div class="signup-copy"><p class="eyebrow">Premiers ateliers bientôt</p><h2>On danse ensemble&nbsp;?</h2><p>Laissez-nous vos coordonnées pour recevoir les prochaines dates et participer à un premier atelier près de chez vous.</p></div>
-        <form id="interest-form">
+        <form id="interest-form" action="https://formsubmit.co/sylvain.hochede@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle réponse au formulaire Step by Step">
+          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label>Votre prénom<input name="prenom" autocomplete="given-name" required placeholder="Camille"></label>
           <label>Votre e-mail<input type="email" name="email" autocomplete="email" required placeholder="camille@email.fr"></label>
           <label>Votre ville<input name="ville" autocomplete="address-level2" required placeholder="Lyon"></label>
-          <button class="button orange" type="submit">Me tenir au courant <span aria-hidden="true">→</span></button>
-          <p class="form-note">Promis, pas de grand écart dans votre boîte mail. Uniquement les infos des ateliers.</p>
-          <p class="success" id="success-message" role="status">C’est noté ! On vous prévient dès qu’une date se dessine près de chez vous.</p>
+          <button class="button orange" id="submit-button" type="submit">Me tenir au courant <span aria-hidden="true">→</span></button>
+          <p class="form-note">Promis, pas de grand écart dans votre boîte mail. Votre réponse est transmise via FormSubmit uniquement pour nous permettre de vous recontacter.</p>
+          <p class="success" id="success-message" role="status" aria-live="polite">C’est noté ! On vous prévient dès qu’une date se dessine près de chez vous.</p>
+          <p class="form-error" id="error-message" role="alert">L’envoi n’a pas fonctionné. Réessayez dans un instant ou écrivez-nous directement.</p>
         </form>
       </div>
     </section>
@@ -363,11 +370,49 @@
 
   <script src="https://www.billetweb.fr/js/export.js" defer></script>
   <script>
-    document.getElementById('interest-form').addEventListener('submit', function (event) {
+    document.getElementById('interest-form').addEventListener('submit', async function (event) {
       event.preventDefault();
-      const message = document.getElementById('success-message');
-      message.classList.add('show');
-      message.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+      const form = event.currentTarget;
+      const button = document.getElementById('submit-button');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
+      const initialButtonContent = button.innerHTML;
+      const fields = new FormData(form);
+
+      successMessage.classList.remove('show');
+      errorMessage.classList.remove('show');
+      button.disabled = true;
+      button.textContent = 'Envoi en cours…';
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/sylvain.hochede@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            'Prénom': fields.get('prenom'),
+            'E-mail': fields.get('email'),
+            'Ville': fields.get('ville'),
+            '_subject': 'Nouvelle réponse au formulaire Step by Step',
+            '_honey': fields.get('_honey')
+          })
+        });
+
+        if (!response.ok) throw new Error('Envoi refusé');
+        const result = await response.json();
+        if (result.success === false) throw new Error('Envoi non confirmé');
+
+        form.reset();
+        successMessage.classList.add('show');
+        successMessage.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+      } catch (error) {
+        errorMessage.classList.add('show');
+      } finally {
+        button.disabled = false;
+        button.innerHTML = initialButtonContent;
+      }
     });
   </script>
 </body>
