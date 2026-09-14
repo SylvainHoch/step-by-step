@@ -155,6 +155,18 @@
     .genres { display: flex; flex-wrap: wrap; gap: 12px; align-content: center; }
     .genre { padding: 13px 18px; border: var(--line); border-radius: 100px; background: var(--cream); font-family: var(--display); text-transform: uppercase; transform: rotate(var(--r)); box-shadow: 3px 3px 0 var(--ink); }
 
+    .events { background: var(--ink); color: white; border-bottom: var(--line); }
+    .events-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; align-items: start; }
+    .events-copy { position: sticky; top: 28px; }
+    .events h2 { font-size: clamp(3rem, 6vw, 6rem); color: var(--cream); }
+    .events-copy > p:last-child { max-width: 480px; margin: 24px 0 0; font-size: 1.15rem; font-weight: 700; }
+    .events .eyebrow::before { background: var(--yellow); }
+    .events-panel { min-width: 0; padding: clamp(16px, 3vw, 28px); border: var(--line); background: var(--cream); color: var(--ink); box-shadow: 12px 12px 0 var(--orange); }
+    .events-panel iframe { display: block; width: 100% !important; max-width: 100%; min-height: 600px; border: 0; background: white; }
+    .events-panel .shop_frame { display: flex; align-items: center; justify-content: space-between; min-height: 68px; padding: 18px 20px; border: var(--line); background: var(--yellow); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); font-weight: 900; text-decoration: none; }
+    .events-panel .shop_frame::after { content: "↗"; font-size: 1.35rem; }
+    .events-note { margin: 18px 0 0; font-size: .86rem; font-weight: 700; }
+
     .faq-grid { display: grid; grid-template-columns: .65fr 1fr; gap: 90px; }
     .faq-grid h2 { font-size: clamp(3rem, 6vw, 6rem); position: sticky; top: 24px; }
     details { border-top: var(--line); }
@@ -192,7 +204,7 @@
     @media (max-width: 860px) {
       .nav-links a:not(.button) { display: none; }
       .hero { padding-top: 24px; }
-      .hero-grid, .section-head, .difference, .music-grid, .faq-grid, .signup-box { grid-template-columns: 1fr; }
+      .hero-grid, .section-head, .difference, .music-grid, .events-grid, .faq-grid, .signup-box { grid-template-columns: 1fr; }
       .hero-grid { gap: 30px; }
       h1 { font-size: clamp(3.2rem, 15vw, 6.4rem); }
       .photo-frame img { height: 520px; }
@@ -202,7 +214,8 @@
       .cards { grid-template-columns: 1fr; }
       .card { min-height: auto; }
       .card:nth-child(2), .card:nth-child(3) { transform: none; }
-      .difference, .music-grid, .faq-grid { gap: 44px; }
+      .difference, .music-grid, .events-grid, .faq-grid { gap: 44px; }
+      .events-copy { position: static; }
       .faq-grid h2 { position: static; }
       .signup { padding-inline: 4px; }
     }
@@ -227,8 +240,9 @@
       <a class="brand" href="#top" aria-label="Step by Step, accueil"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Step by<br>Step</span></a>
       <div class="nav-links">
         <a href="#atelier">L’atelier</a>
+        <a href="#evenements">Événements</a>
         <a href="#questions">Questions</a>
-        <a class="button" href="#inscription">Je veux danser <span aria-hidden="true">↘</span></a>
+        <a class="button" href="#evenements">Voir les dates <span aria-hidden="true">↘</span></a>
       </div>
     </nav>
   </header>
@@ -241,7 +255,7 @@
           <h1>Et si vous arrêtiez d’essayer de <span class="scribble">bien danser&nbsp;?</span></h1>
           <p class="hero-copy">On explore, on tente, on rit. Pas de chorégraphie à mémoriser : juste des clés simples pour trouver vos mouvements et prendre enfin plaisir quand la musique démarre.</p>
           <div class="hero-actions">
-            <a class="button orange" href="#inscription">Je veux essayer <span aria-hidden="true">↘</span></a>
+            <a class="button orange" href="#evenements">Voir les ateliers <span aria-hidden="true">↘</span></a>
             <a class="button" href="#atelier">Comment ça se passe&nbsp;?</a>
           </div>
           <p class="microcopy">Aucun niveau · Pas de partenaire · Step by step</p>
@@ -299,6 +313,20 @@
       </div>
     </section>
 
+    <section class="events" id="evenements">
+      <div class="shell events-grid">
+        <div class="events-copy">
+          <p class="eyebrow">Prochains rendez-vous</p>
+          <h2>À vous de jouer.</h2>
+          <p>Choisissez l’atelier qui vous convient et réservez directement votre place. Aucun niveau ni partenaire nécessaire.</p>
+        </div>
+        <div class="events-panel">
+          <a title="Réserver vos billets en ligne" href="https://www.billetweb.fr/multi_event.php?multi=46340" class="shop_frame" target="_blank" rel="noopener noreferrer" data-src="https://www.billetweb.fr/multi_event.php?multi=46340" data-max-width="100%" data-initial-height="600" data-scrolling="no" data-id="46340" data-resize="1">Voir les événements et réserver</a>
+          <p class="events-note">Réservation sécurisée par Billetweb. La billetterie peut aussi s’ouvrir dans un nouvel onglet.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="questions">
       <div class="shell faq-grid">
         <div><p class="eyebrow">Questions légitimes</p><h2>Avant d’oser</h2></div>
@@ -333,6 +361,7 @@
     </div>
   </footer>
 
+  <script src="https://www.billetweb.fr/js/export.js" defer></script>
   <script>
     document.getElementById('interest-form').addEventListener('submit', function (event) {
       event.preventDefault();
