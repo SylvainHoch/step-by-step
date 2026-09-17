@@ -8,12 +8,9 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Step by Step — Danser sans avoir à savoir danser">
   <meta property="og:description" content="Des ateliers sans chorégraphie pour trouver sa façon de bouger et prendre plaisir quand la musique démarre.">
-  <meta property="og:url" content="https://step-by-step-danse.sylvain-hochede.chatgpt.site/">
-  <meta property="og:image" content="https://step-by-step-danse.sylvain-hochede.chatgpt.site/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Step by Step — Danser sans avoir à savoir danser">
   <meta name="twitter:description" content="Des ateliers sans chorégraphie pour trouver sa façon de bouger et prendre plaisir quand la musique démarre.">
-  <meta name="twitter:image" content="https://step-by-step-danse.sylvain-hochede.chatgpt.site/og.png">
   <title>Step by Step — Danser sans avoir à savoir danser</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23fff7e8'/%3E%3Cpath d='M8 46h18V34h14V22h16' fill='none' stroke='%2310295f' stroke-width='9' stroke-linecap='square' stroke-linejoin='miter'/%3E%3Cpath d='M8 46h18M26 34h14M40 22h16' stroke='%23ff5a36' stroke-width='5'/%3E%3C/svg%3E">
   <style>
@@ -58,19 +55,23 @@
     nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand {
       display: inline-flex;
-      align-items: center;
-      gap: 10px;
+      align-items: flex-end;
+      gap: 8px;
       text-decoration: none;
       font-family: var(--display);
-      font-size: 1.05rem;
-      line-height: .95;
+      font-size: .78rem;
+      line-height: .72;
       text-transform: uppercase;
     }
-    .brand-mark { width: 42px; height: 38px; position: relative; transform: rotate(-4deg); }
+    .brand-mark { width: 46px; height: 46px; position: relative; transform: rotate(-3deg); }
     .brand-mark i { position: absolute; width: 20px; height: 8px; border: 2px solid var(--ink); background: var(--orange); }
     .brand-mark i:nth-child(1) { left: 0; bottom: 0; }
-    .brand-mark i:nth-child(2) { left: 10px; bottom: 11px; background: var(--yellow); }
-    .brand-mark i:nth-child(3) { left: 20px; bottom: 22px; background: var(--orange); }
+    .brand-mark i:nth-child(2) { left: 11px; bottom: 14px; background: var(--yellow); }
+    .brand-mark i:nth-child(3) { left: 22px; bottom: 28px; background: var(--orange); }
+    .brand-name { display: grid; grid-template-rows: repeat(3, 1fr); height: 48px; align-items: center; }
+    .brand-name span { display: block; white-space: nowrap; }
+    .brand-name span:nth-child(1) { transform: translateX(16px); }
+    .brand-name span:nth-child(2) { transform: translateX(8px); }
     .nav-links { display: flex; align-items: center; gap: 28px; font-weight: 800; }
     .nav-links a { text-decoration: none; }
     .nav-links a:not(.button):hover { text-decoration: underline 3px var(--orange); text-underline-offset: 5px; }
@@ -95,7 +96,7 @@
     .button:focus-visible, input:focus-visible, summary:focus-visible { outline: 4px solid #54a6ff; outline-offset: 3px; }
     .button.orange { color: white; background: var(--orange); }
 
-    .hero { padding: 42px 0 72px; position: relative; }
+    .hero { padding: 42px 0 64px; position: relative; }
     .hero-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 54px; align-items: center; }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px; font-size: .83rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 38px; height: 4px; background: var(--orange); }
@@ -103,9 +104,8 @@
     h1 { max-width: 780px; font-size: clamp(3.4rem, 5.25vw, 5.3rem); line-height: .9; }
     h1 .scribble { position: relative; display: inline-block; color: var(--orange); transform: rotate(-2deg); }
     h1 .scribble::after { content: ""; position: absolute; left: -2%; right: -2%; bottom: -3px; height: 9px; background: var(--yellow); z-index: -1; transform: rotate(1deg); }
-    .hero-copy { max-width: 580px; margin: 20px 0; font-size: clamp(1.05rem, 1.5vw, 1.22rem); font-weight: 700; }
+    .hero-copy { max-width: 580px; margin: 24px 0; font-size: clamp(1.08rem, 1.5vw, 1.24rem); font-weight: 700; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-    .microcopy { margin: 16px 0 0; font-size: .9rem; font-weight: 700; }
 
     .photo-wrap { position: relative; margin: 20px 8px 0 0; }
     .photo-frame { overflow: hidden; border: var(--line); box-shadow: 12px 12px 0 var(--yellow), 14px 14px 0 2px var(--ink); transform: rotate(1.7deg); }
@@ -119,42 +119,57 @@
     @keyframes marquee { to { transform: translateX(-50%); } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ticker-track { animation: none; } * { transition: none !important; } }
 
-    section { padding: 100px 0; }
-    .section-head { display: grid; grid-template-columns: .85fr 1fr; gap: 60px; align-items: end; margin-bottom: 52px; }
-    .section-head h2 { font-size: clamp(2.5rem, 5.5vw, 5.5rem); }
-    .section-head p { max-width: 620px; margin: 0; font-size: 1.2rem; font-weight: 700; }
+    section { padding: 82px 0; }
+    .section-head { margin-bottom: 52px; }
+    .section-head h2 { max-width: 980px; font-size: clamp(2.5rem, 5.5vw, 5.5rem); }
     .warm { background: var(--orange); color: #fff; border-bottom: var(--line); }
     .warm .eyebrow::before { background: var(--yellow); }
-    .warm .section-head { align-items: start; }
     .warm h2 { color: var(--cream); }
-    .warm .lead-quote { color: var(--yellow); font-family: var(--display); font-size: clamp(1.5rem, 3.3vw, 3rem); line-height: 1.05; text-transform: uppercase; }
 
     .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .card { min-height: 310px; padding: 28px; border: var(--line); background: var(--cream); color: var(--ink); box-shadow: var(--shadow); }
+    .card { min-height: 280px; padding: 28px; border: var(--line); background: var(--cream); color: var(--ink); box-shadow: var(--shadow); }
     .card:nth-child(2) { transform: translateY(18px) rotate(-1deg); background: var(--yellow); }
     .card:nth-child(3) { transform: rotate(1deg); }
-    .card-number { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: white; font-family: var(--display); margin-bottom: 46px; }
+    .card-number { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: white; font-family: var(--display); margin-bottom: 34px; }
     .card h3 { font-size: clamp(1.6rem, 3vw, 2.35rem); }
     .card p { margin: 17px 0 0; font-weight: 700; }
 
-    .difference { display: grid; grid-template-columns: 1fr 1fr; gap: 74px; align-items: center; }
-    .difference h2 { font-size: clamp(2.8rem, 5.7vw, 5.8rem); margin-bottom: 28px; }
-    .difference-copy > p { max-width: 610px; font-size: 1.2rem; font-weight: 700; }
-    .checks { display: grid; gap: 12px; margin-top: 34px; }
-    .check { display: flex; gap: 14px; align-items: center; padding: 15px 17px; border: var(--line); background: white; font-weight: 900; transform: rotate(-.4deg); }
-    .check:nth-child(even) { transform: rotate(.45deg); background: var(--yellow); }
-    .x { flex: 0 0 31px; height: 31px; border: var(--line); border-radius: 50%; display: grid; place-items: center; color: var(--orange); font-family: var(--display); }
-    .statement { position: relative; padding: 46px; background: var(--blue); color: white; border: var(--line); box-shadow: 12px 12px 0 var(--orange); transform: rotate(1deg); }
-    .statement p { margin: 0; font-family: var(--display); font-size: clamp(2rem, 4vw, 4.3rem); line-height: 1.02; text-transform: uppercase; }
-    .statement em { color: var(--yellow); font-style: normal; }
-    .statement small { display: block; margin-top: 30px; font-size: .95rem; font-weight: 800; }
+    .trainer { background: var(--cream); border-bottom: var(--line); }
+    .trainer-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(46px, 8vw, 100px); align-items: center; }
+    .trainer-photo { min-height: 470px; display: grid; place-items: center; border: var(--line); background: var(--yellow); box-shadow: 12px 12px 0 var(--orange), 14px 14px 0 2px var(--ink); transform: rotate(-1.5deg); overflow: hidden; }
+    .trainer-photo img { width: 100%; height: 100%; min-height: 470px; object-fit: cover; }
+    .trainer-photo-placeholder { display: grid; place-items: center; gap: 10px; width: 100%; height: 100%; padding: 40px; text-align: center; }
+    .trainer-photo-placeholder strong { font-family: var(--display); font-size: clamp(2rem, 4vw, 4rem); line-height: .95; text-transform: uppercase; }
+    .trainer-photo-placeholder span { font-weight: 800; }
+    .trainer h2 { font-size: clamp(3.2rem, 7vw, 7rem); }
+    .trainer-text { max-width: 650px; margin: 26px 0 0; font-size: 1.14rem; font-weight: 700; }
+    .trainer-points { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .trainer-points span { padding: 10px 14px; border: var(--line); background: white; font-weight: 900; transform: rotate(-.5deg); }
+    .trainer-points span:nth-child(2) { background: var(--yellow); transform: rotate(.7deg); }
 
-    .music { background: var(--yellow); border-block: var(--line); }
-    .music-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 64px; align-items: center; }
-    .music h2 { font-size: clamp(3rem, 6.7vw, 7rem); }
-    .music p { font-size: 1.2rem; font-weight: 700; max-width: 560px; }
-    .genres { display: flex; flex-wrap: wrap; gap: 12px; align-content: center; }
-    .genre { padding: 13px 18px; border: var(--line); border-radius: 100px; background: var(--cream); font-family: var(--display); text-transform: uppercase; transform: rotate(var(--r)); box-shadow: 3px 3px 0 var(--ink); }
+    .instagram { padding: 58px 0; background: var(--yellow); border-bottom: var(--line); }
+    .instagram-grid { display: grid; grid-template-columns: 1fr auto; gap: 42px; align-items: center; }
+    .instagram h2 { font-size: clamp(2.5rem, 5vw, 4.8rem); }
+    .instagram p { max-width: 680px; margin: 16px 0 0; font-size: 1.08rem; font-weight: 700; }
+    .social-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 18px; }
+    .instagram-slot { min-width: 260px; padding: 24px; border: var(--line); background: var(--cream); box-shadow: var(--shadow); text-align: center; transform: rotate(1deg); }
+    a.instagram-slot { text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
+    a.instagram-slot:hover { transform: translate(2px, 2px) rotate(1deg); box-shadow: 3px 3px 0 var(--ink); }
+    .instagram-slot:nth-child(2) { background: white; transform: rotate(-1deg); }
+    a.instagram-slot:nth-child(2):hover { transform: translate(2px, 2px) rotate(-1deg); }
+    .instagram-slot strong { display: block; font-family: var(--display); font-size: 1.25rem; text-transform: uppercase; }
+    .instagram-slot span { display: block; margin-top: 8px; font-weight: 700; }
+
+    .faq { background: var(--cream); border-bottom: var(--line); }
+    .faq-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 70px; align-items: start; }
+    .faq h2 { position: sticky; top: 28px; font-size: clamp(3rem, 6vw, 6rem); }
+    details { border-top: var(--line); }
+    details:last-child { border-bottom: var(--line); }
+    summary { display: flex; justify-content: space-between; gap: 24px; padding: 24px 0; cursor: pointer; list-style: none; font-family: var(--display); font-size: clamp(1.15rem, 2vw, 1.6rem); line-height: 1.12; text-transform: uppercase; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; flex: 0 0 auto; color: var(--orange); font-size: 1.5em; line-height: .75; }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 720px; margin: -4px 0 26px; font-size: 1.05rem; font-weight: 700; }
 
     .events { background: var(--ink); color: white; border-bottom: var(--line); }
     .events-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; align-items: start; }
@@ -168,17 +183,7 @@
     .events-panel .shop_frame::after { content: "↗"; font-size: 1.35rem; }
     .events-note { margin: 18px 0 0; font-size: .86rem; font-weight: 700; }
 
-    .faq-grid { display: grid; grid-template-columns: .65fr 1fr; gap: 90px; }
-    .faq-grid h2 { font-size: clamp(3rem, 6vw, 6rem); position: sticky; top: 24px; }
-    details { border-top: var(--line); }
-    details:last-child { border-bottom: var(--line); }
-    summary { list-style: none; cursor: pointer; padding: 24px 44px 24px 0; font-family: var(--display); text-transform: uppercase; font-size: 1.2rem; position: relative; }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; position: absolute; right: 6px; top: 18px; font-size: 2rem; color: var(--orange); }
-    details[open] summary::after { content: "–"; }
-    details p { margin: -8px 50px 24px 0; font-weight: 700; }
-
-    .signup { padding-top: 30px; }
+    .signup { padding: 70px 0; }
     .signup-box { display: grid; grid-template-columns: 1fr 1fr; border: var(--line); background: var(--ink); color: white; box-shadow: 12px 12px 0 var(--orange); }
     .signup-copy { padding: clamp(35px, 6vw, 72px); }
     .signup h2 { font-size: clamp(2.8rem, 5.3vw, 5.5rem); }
@@ -195,44 +200,44 @@
     .hp-field { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 
     footer { padding: 78px 0 28px; }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; padding-bottom: 46px; border-bottom: var(--line); }
+    .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 48px; padding-bottom: 46px; border-bottom: var(--line); }
     .footer-top strong { display: block; font-family: var(--display); font-size: clamp(2.5rem, 6vw, 6rem); line-height: .85; text-transform: uppercase; }
-    .footer-top span { display: block; max-width: 420px; margin-top: 20px; font-weight: 700; }
+    .contact-links { display: grid; gap: 12px; justify-items: end; padding-top: 8px; }
+    .contact-links a { font-weight: 900; text-underline-offset: 5px; }
     .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; font-size: .82rem; font-weight: 800; }
-    .footer-signature { display: flex; align-items: center; gap: 18px; }
-    .footer-signature .brand-mark { flex: 0 0 auto; width: 72px; height: 64px; transform: rotate(-4deg) scale(1.45); transform-origin: left center; margin-right: 20px; }
-    .footer-signature .brand-mark i { width: 28px; height: 11px; }
-    .footer-signature .brand-mark i:nth-child(2) { left: 14px; bottom: 15px; }
-    .footer-signature .brand-mark i:nth-child(3) { left: 28px; bottom: 30px; }
 
     @media (max-width: 860px) {
       .nav-links a:not(.button) { display: none; }
       .hero { padding-top: 24px; }
-      .hero-grid, .section-head, .difference, .music-grid, .events-grid, .faq-grid, .signup-box { grid-template-columns: 1fr; }
+      .hero-grid, .trainer-grid, .instagram-grid, .events-grid, .faq-grid, .signup-box { grid-template-columns: 1fr; }
       .hero-grid { gap: 30px; }
       h1 { font-size: clamp(3.2rem, 15vw, 6.4rem); }
       .photo-frame img { height: 520px; }
       .sticker { right: -10px; width: 112px; }
       section { padding: 74px 0; }
-      .section-head { gap: 22px; }
       .cards { grid-template-columns: 1fr; }
       .card { min-height: auto; }
       .card:nth-child(2), .card:nth-child(3) { transform: none; }
-      .difference, .music-grid, .events-grid, .faq-grid { gap: 44px; }
+      .trainer-grid, .instagram-grid, .events-grid, .faq-grid { gap: 44px; }
+      .social-links { justify-content: flex-start; }
       .events-copy { position: static; }
-      .faq-grid h2 { position: static; }
+      .faq h2 { position: static; }
+      .trainer-photo { min-height: 440px; }
       .signup { padding-inline: 4px; }
     }
     @media (max-width: 560px) {
       .shell { width: min(100% - 24px, 1180px); }
       nav { min-height: 68px; }
-      .brand { font-size: .91rem; }
+      .brand { font-size: .68rem; }
       nav .button { min-height: 42px; padding: 9px 12px; }
       .hero-actions .button { width: 100%; }
       .photo-frame img { height: 400px; }
       .doodle { display: none; }
-      .statement { padding: 30px; }
-      .footer-top, .footer-bottom { align-items: flex-start; flex-direction: column; }
+      .trainer-photo { min-height: 360px; }
+      .social-links, .instagram-slot { width: 100%; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .contact-links { justify-items: start; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; }
       form, .signup-copy { padding: 30px 22px; }
     }
   </style>
@@ -241,11 +246,11 @@
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header>
     <nav class="shell" aria-label="Navigation principale">
-      <a class="brand" href="#top" aria-label="Step by Step, accueil"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Step by<br>Step</span></a>
+      <a class="brand" href="#top" aria-label="Step by Step, accueil"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="brand-name"><span>Step</span><span>By</span><span>Step</span></span></a>
       <div class="nav-links">
         <a href="#atelier">L’atelier</a>
-        <a href="#evenements">Événements</a>
-        <a href="#questions">Questions</a>
+        <a href="#clara">La prof</a>
+        <a href="#contact">Contact</a>
         <a class="button" href="#evenements">Voir les dates <span aria-hidden="true">↘</span></a>
       </div>
     </nav>
@@ -255,14 +260,11 @@
     <section class="hero" id="top">
       <div class="shell hero-grid">
         <div>
-          <p class="eyebrow">Ateliers de danse intuitive</p>
-          <h1>Et si tu dansais comme <span class="scribble">tu voulais&nbsp;?</span></h1>
-          <p class="hero-copy">On explore, on tente, on rit. Pas de chorégraphie à mémoriser : juste des clés simples pour trouver vos mouvements et prendre enfin plaisir quand la musique démarre.</p>
+          <h1>Et si tu dansais comme tu le <span class="scribble">voulais&nbsp;?</span></h1>
+          <p class="hero-copy">Des ateliers hebdomadaires pour adultes qui veulent bouger avec plus de confiance et prendre du plaisir dès que la musique démarre.</p>
           <div class="hero-actions">
             <a class="button orange" href="#evenements">Voir les ateliers <span aria-hidden="true">↘</span></a>
-            <a class="button" href="#atelier">Comment ça se passe&nbsp;?</a>
           </div>
-          <p class="microcopy">Aucun niveau · Pas de partenaire · Step by step</p>
         </div>
         <div class="photo-wrap">
           <div class="photo-frame">
@@ -274,46 +276,32 @@
       </div>
     </section>
 
-    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Pas de pas imposés</span><span>Votre corps, votre danse</span><span>Moins réfléchir, plus bouger</span><span>Principalement en solo, toujours ensemble</span><span>Pas de pas imposés</span><span>Votre corps, votre danse</span><span>Moins réfléchir, plus bouger</span><span>Principalement en solo, toujours ensemble</span></div></div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Du plaisir dès la première séance</span><span>Zéro chorégraphie</span><span>Aucune expérience requise</span><span>Danse solo, toujours ensemble</span><span>Des musiques variées</span><span>Du plaisir dès la première séance</span><span>Zéro chorégraphie</span><span>Aucune expérience requise</span><span>Danse solo, toujours ensemble</span><span>Des musiques variées</span></div></div>
 
     <section class="warm" id="atelier">
       <div class="shell">
         <div class="section-head">
-          <div><p class="eyebrow">Concrètement</p><h2>On ne vous apprend pas une danse.</h2></div>
-          <p class="lead-quote">On vous aide à trouver la vôtre.</p>
+          <div><p class="eyebrow">Concrètement</p><h2>Chaque semaine, 1h30 pour bouger en musique.</h2></div>
         </div>
         <div class="cards">
-          <article class="card"><span class="card-number">1</span><h3>On se met en mouvement</h3><p>On commence doucement, sans se regarder et sans avoir quoi que ce soit à prouver.</p></article>
-          <article class="card"><span class="card-number">2</span><h3>On explore</h3><p>La prof propose des jeux simples autour du rythme, de l’espace et de différentes parties du corps.</p></article>
-          <article class="card"><span class="card-number">3</span><h3>On danse pour de vrai</h3><p>Sur plusieurs styles de musique, chacun assemble ses découvertes et trouve ce qui lui fait plaisir.</p></article>
+          <article class="card"><span class="card-number">1</span><h3>Échauffement</h3><p>On prépare le corps, on se met en confiance et on entre dans la séance avec la musique.</p></article>
+          <article class="card"><span class="card-number">2</span><h3>Exploration</h3><p>Des exercices guidés pour tester le rythme, l’espace et le mouvement intuitif, sans rien avoir à mémoriser.</p></article>
+          <article class="card"><span class="card-number">3</span><h3>Danse</h3><p>On réutilise ce qu’on vient d’explorer sur des musiques variées, avec un seul objectif : prendre du plaisir.</p></article>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="shell difference">
-        <div class="difference-copy">
-          <p class="eyebrow">Vous êtes au bon endroit si…</p>
-          <h2>La musique vous donne envie… et un peu peur.</h2>
-          <p>Vous aimez la musique, mais vous restez près du bar. Vous refaites toujours les deux mêmes mouvements. Vous ne savez jamais quoi faire de vos bras. Bonne nouvelle : vous n’avez pas besoin de « savoir danser » pour commencer.</p>
-          <div class="checks">
-            <div class="check"><span class="x">×</span>Pas de chorégraphie à retenir</div>
-            <div class="check"><span class="x">×</span>Pas de passage seul·e devant le groupe</div>
-            <div class="check"><span class="x">×</span>Pas besoin de venir avec un partenaire</div>
-            <div class="check"><span class="x">×</span>Pas de bon corps ni de bon mouvement</div>
-          </div>
+    <section class="trainer" id="clara">
+      <div class="shell trainer-grid">
+        <div class="trainer-photo">
+          <div class="trainer-photo-placeholder" role="img" aria-label="Emplacement prévu pour une photo de Clara"><strong>Clara</strong><span>Photo à ajouter</span></div>
         </div>
-        <aside class="statement">
-          <p>Des propositions,<br><em>pas des pas imposés.</em></p>
-          <small>Vous êtes guidé·e sans avoir à reproduire.</small>
-        </aside>
-      </div>
-    </section>
-
-    <section class="music">
-      <div class="shell music-grid">
-        <div><p class="eyebrow">Une danse qui voyage</p><h2>Une playlist. Mille façons de bouger.</h2><p>On change d’univers pour apprendre à écouter autrement. Pas pour maîtriser un style, mais pour découvrir ce que chaque musique fait naître chez vous.</p></div>
-        <div class="genres" aria-label="Styles musicaux explorés"><span class="genre" style="--r:-3deg">Pop</span><span class="genre" style="--r:2deg">Disco</span><span class="genre" style="--r:-1deg">Afro</span><span class="genre" style="--r:4deg">Rock</span><span class="genre" style="--r:-4deg">Électro</span><span class="genre" style="--r:1deg">Funk</span><span class="genre" style="--r:-2deg">Et le reste…</span></div>
+        <div>
+          <p class="eyebrow">La formatrice</p>
+          <h2>Clara</h2>
+          <p class="trainer-text">Clara aime faire bouger les gens sans pression. Avec des consignes simples et beaucoup de bonne humeur, elle aide chacun à essayer, se surprendre et trouver ce qui lui plaît. Son truc : créer un groupe où l’on se sent vite à l’aise, même quand on pense ne pas savoir danser.</p>
+          <div class="trainer-points"><span>Pédagogue</span><span>Expérimentée</span><span>À l’écoute</span></div>
+        </div>
       </div>
     </section>
 
@@ -322,7 +310,7 @@
         <div class="events-copy">
           <p class="eyebrow">Prochains rendez-vous</p>
           <h2>À vous de jouer.</h2>
-          <p>Choisissez l’atelier qui vous convient et réservez directement votre place. Aucun niveau ni partenaire nécessaire.</p>
+          <p>Choisissez l’atelier qui vous convient et réservez directement votre place.</p>
         </div>
         <div class="events-panel">
           <a title="Réserver vos billets en ligne" href="https://www.billetweb.fr/multi_event.php?multi=46340" class="shop_frame" target="_blank" rel="noopener noreferrer" data-src="https://www.billetweb.fr/multi_event.php?multi=46340" data-max-width="100%" data-initial-height="600" data-scrolling="no" data-id="46340" data-resize="1">Voir les événements et réserver</a>
@@ -331,29 +319,51 @@
       </div>
     </section>
 
-    <section id="questions">
+    <section class="instagram" id="instagram">
+      <div class="shell instagram-grid">
+        <div><p class="eyebrow">Réseaux sociaux</p><h2>Les ateliers en mouvement.</h2><p>Des extraits de séances, les coulisses et les prochaines dates.</p></div>
+        <div class="social-links">
+          <a class="instagram-slot" href="https://www.instagram.com/stepbystep.liege/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Step by Step Liège sur Instagram"><strong>Instagram</strong><span>@stepbystep.liege ↗</span></a>
+          <a class="instagram-slot" href="https://www.facebook.com/profile.php?id=61555331454548" target="_blank" rel="noopener noreferrer" aria-label="Suivre Step by Step sur Facebook"><strong>Facebook</strong><span>Voir la page ↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="questions">
       <div class="shell faq-grid">
-        <div><p class="eyebrow">Questions légitimes</p><h2>Avant d’oser</h2></div>
+        <div><p class="eyebrow">Questions fréquentes</p><h2>Avant de venir</h2></div>
         <div>
-          <details><summary>Je suis vraiment nul·le. C’est pour moi&nbsp;?</summary><p>Oui, vraiment. L’atelier est justement pensé pour les personnes qui ne se sentent pas danseuses. Il n’y a pas de niveau à atteindre ni de mouvement à réussir.</p></details>
-          <details><summary>Est-ce que je vais devoir danser devant tout le monde&nbsp;?</summary><p>Non. L’exploration se fait principalement en solo, au milieu du groupe. Vous gardez toujours la liberté d’adapter une proposition ou de faire une pause.</p></details>
-          <details><summary>Quel style de danse apprend-on&nbsp;?</summary><p>Aucun style en particulier. Nous traversons différentes musiques pour développer l’écoute, le rythme et votre propre vocabulaire de mouvement.</p></details>
-          <details><summary>Comment faut-il s’habiller&nbsp;?</summary><p>Avec une tenue dans laquelle vous pouvez bouger confortablement. Pas besoin de tenue technique, de talons ni d’accessoires particuliers.</p></details>
+          <details>
+            <summary>Je ne sais vraiment pas danser. C’est pour moi&nbsp;?</summary>
+            <p>Oui. L’atelier est justement pensé pour les adultes qui ne se sentent pas à l’aise quand la musique démarre. Il n’y a aucun niveau à atteindre.</p>
+          </details>
+          <details>
+            <summary>Est-ce que je vais devoir danser devant tout le monde&nbsp;?</summary>
+            <p>Non. Tu danses principalement en solo, au milieu du groupe. Tu peux adapter chaque proposition et avancer à ton rythme.</p>
+          </details>
+          <details>
+            <summary>Sur quels types de musique danse-t-on&nbsp;?</summary>
+            <p>Sur des morceaux variés : pop, funk, disco, afro, rock ou électro. Le but n’est pas d’apprendre un style, mais de trouver du plaisir sur différentes musiques.</p>
+          </details>
+          <details>
+            <summary>Comment faut-il s’habiller&nbsp;?</summary>
+            <p>Avec une tenue confortable qui te laisse libre de bouger et des chaussures dans lesquelles tu te sens bien. Rien de technique n’est nécessaire.</p>
+          </details>
         </div>
       </div>
     </section>
 
     <section class="signup" id="inscription">
       <div class="shell signup-box">
-        <div class="signup-copy"><p class="eyebrow">Premiers ateliers bientôt</p><h2>On danse ensemble&nbsp;?</h2><p>Laissez-nous vos coordonnées pour recevoir les prochaines dates et participer à un premier atelier près de chez vous.</p></div>
+        <div class="signup-copy"><p class="eyebrow">Rester au courant</p><h2>On vous prévient&nbsp;?</h2><p>Laissez vos coordonnées pour recevoir les prochaines dates.</p></div>
         <form id="interest-form" action="https://formsubmit.co/sylvain.hochede@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="Nouvelle réponse au formulaire Step by Step">
           <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label>Votre prénom<input name="prenom" autocomplete="given-name" required placeholder="Camille"></label>
+          <label>Votre nom<input name="nom" autocomplete="family-name" required placeholder="Martin"></label>
           <label>Votre e-mail<input type="email" name="email" autocomplete="email" required placeholder="camille@email.fr"></label>
-          <label>Votre ville<input name="ville" autocomplete="address-level2" required placeholder="Lyon"></label>
           <button class="button orange" id="submit-button" type="submit">Me tenir au courant <span aria-hidden="true">→</span></button>
-          <p class="form-note">Promis, pas de grand écart dans votre boîte mail. Votre réponse est transmise via FormSubmit uniquement pour nous permettre de vous recontacter.</p>
+          <p class="form-note">Vos coordonnées sont transmises via FormSubmit uniquement pour vous recontacter au sujet des ateliers.</p>
           <p class="success" id="success-message" role="status" aria-live="polite">C’est noté ! On vous prévient dès qu’une date se dessine près de chez vous.</p>
           <p class="form-error" id="error-message" role="alert">L’envoi n’a pas fonctionné. Réessayez dans un instant ou écrivez-nous directement.</p>
         </form>
@@ -361,10 +371,18 @@
     </section>
   </main>
 
-  <footer>
+  <footer id="contact">
     <div class="shell">
-      <div class="footer-top"><div><div class="footer-signature"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><strong>Step by Step.</strong></div><span>Un espace joyeux pour moins réfléchir, davantage bouger et faire la paix avec ses deux pieds gauches.</span></div><a class="button" href="#top">Retour en haut ↑</a></div>
-      <div class="footer-bottom"><span>© 2026 Step by Step</span><span>Danser comme on est, un pas après l’autre.</span></div>
+      <div class="footer-top">
+        <div><p class="eyebrow">Contact</p><strong>Une question&nbsp;?</strong></div>
+        <div class="contact-links">
+          <a href="mailto:sylvain.hochede@gmail.com">sylvain.hochede@gmail.com</a>
+          <a href="https://www.instagram.com/stepbystep.liege/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61555331454548" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <!-- Ajouter ici le numéro de téléphone de Sylvain lorsqu'il est disponible. -->
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Step by Step</span><a href="#top">Retour en haut ↑</a></div>
     </div>
   </footer>
 
@@ -393,8 +411,8 @@
           },
           body: JSON.stringify({
             'Prénom': fields.get('prenom'),
+            'Nom': fields.get('nom'),
             'E-mail': fields.get('email'),
-            'Ville': fields.get('ville'),
             '_subject': 'Nouvelle réponse au formulaire Step by Step',
             '_honey': fields.get('_honey')
           })
