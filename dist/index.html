@@ -101,7 +101,7 @@
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 38px; height: 4px; background: var(--orange); }
     h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: -.035em; line-height: 1; }
-    h1 { max-width: 780px; font-size: clamp(2.9rem, 4.65vw, 4.7rem); line-height: .94; }
+    h1 { max-width: 780px; font-size: clamp(3.4rem, 5.5vw, 5.5rem); font-weight: 800; line-height: .92; }
     h1 .scribble { position: relative; display: inline-block; color: var(--orange); transform: rotate(-2deg); }
     h1 .scribble::after { content: ""; position: absolute; left: -2%; right: -2%; bottom: -3px; height: 9px; background: var(--yellow); z-index: -1; transform: rotate(1deg); }
     .hero-copy { max-width: 580px; margin: 24px 0 0; font-size: clamp(1rem, 1.3vw, 1.15rem); font-weight: 400; }
@@ -114,7 +114,7 @@
     .doodle { position: absolute; left: -43px; bottom: -30px; width: 110px; color: var(--orange); transform: rotate(-13deg); }
 
     .ticker { border-block: var(--line); background: var(--ink); color: var(--cream); }
-    .ticker-track { width: min(1180px, calc(100% - 40px)); margin-inline: auto; display: grid; grid-template-columns: repeat(4, 1fr); font-weight: 600; font-size: clamp(.88rem, 1.15vw, 1.05rem); line-height: 1.25; text-transform: uppercase; letter-spacing: .025em; }
+    .ticker-track { width: fit-content; max-width: min(1180px, calc(100% - 40px)); margin-inline: auto; display: grid; grid-template-columns: repeat(4, max-content); font-weight: 600; font-size: clamp(.88rem, 1.15vw, 1.05rem); line-height: 1.25; text-transform: uppercase; letter-spacing: .025em; }
     .ticker-track span { min-height: 82px; display: grid; grid-template-columns: 9px 1fr; align-items: center; gap: 12px; padding: 16px 20px; text-align: left; }
     .ticker-track span::before { content: ""; flex: 0 0 auto; width: 9px; height: 9px; background: var(--yellow); transform: rotate(45deg); }
     .ticker-track span + span { border-left: 1px solid rgba(255, 247, 232, .32); }
@@ -174,7 +174,9 @@
     .events-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; align-items: start; }
     .events-copy { position: sticky; top: 28px; }
     .events h2 { font-size: clamp(2.6rem, 5vw, 5rem); color: var(--cream); }
-    .events-copy > p:last-child { max-width: 520px; margin: 24px 0 0; font-size: 1.08rem; font-weight: 400; }
+    .events-copy > p { max-width: 520px; margin: 24px 0 0; font-size: 1.08rem; font-weight: 400; }
+    .events-copy > p + ul { max-width: 540px; margin: 18px 0 0; padding-left: 22px; font-size: 1.08rem; font-weight: 400; }
+    .events-copy li + li { margin-top: 12px; }
     .events .eyebrow::before { background: var(--yellow); }
     .events-panel { min-width: 0; padding: clamp(16px, 3vw, 28px); border: var(--line); background: var(--cream); color: var(--ink); box-shadow: 12px 12px 0 var(--orange); }
     .events-panel iframe { display: block; width: 100% !important; max-width: 100%; min-height: 600px; border: 0; background: white; }
@@ -210,7 +212,7 @@
       .hero { padding-top: 24px; }
       .hero-grid, .trainer-grid, .instagram-grid, .events-grid, .faq-grid, .signup-box { grid-template-columns: 1fr; }
       .hero-grid { gap: 30px; }
-      h1 { font-size: clamp(2.8rem, 13vw, 5.4rem); }
+      h1 { font-size: clamp(3.2rem, 15vw, 6rem); }
       .photo-frame img { height: 520px; }
       .sticker { right: -10px; width: 112px; }
       section { padding: 74px 0; }
@@ -218,7 +220,7 @@
       .card { min-height: auto; }
       .card:nth-child(2), .card:nth-child(3) { transform: none; }
       .trainer-grid, .instagram-grid, .events-grid, .faq-grid { gap: 44px; }
-      .ticker-track { grid-template-columns: repeat(2, 1fr); }
+      .ticker-track { width: min(1180px, calc(100% - 40px)); grid-template-columns: repeat(2, 1fr); }
       .ticker-track span + span { border-left: 0; }
       .ticker-track span:nth-child(even) { border-left: 1px solid rgba(255, 247, 232, .32); }
       .ticker-track span:nth-child(n + 3) { border-top: 1px solid rgba(255, 247, 232, .32); }
@@ -268,7 +270,7 @@
       <div class="shell hero-grid">
         <div>
           <h1>Et si tu dansais comme tu le <span class="scribble">voulais&nbsp;?</span></h1>
-          <p class="hero-copy">Découvre une nouvelle façon d’apprendre à danser, sans chorégraphie, dans une ambiance décontractée, sur tout type de musique.</p>
+          <p class="hero-copy">Viens apprendre à danser sans chorégraphie dans une ambiance décontractée.</p>
           <div class="hero-actions">
             <a class="button orange" href="#evenements">Voir les ateliers <span aria-hidden="true">↘</span></a>
           </div>
@@ -285,10 +287,10 @@
 
     <div class="ticker">
       <div class="ticker-track">
-        <span>Ambiance décontractée</span>
-        <span>Pas de chorégraphie</span>
         <span>Aucune expérience requise</span>
         <span>Danse solo</span>
+        <span>Pas de chorégraphie</span>
+        <span>Tous styles musicaux</span>
       </div>
     </div>
 
@@ -325,7 +327,11 @@
       <div class="shell events-grid">
         <div class="events-copy">
           <h2>Réservation</h2>
-          <p>On propose deux types d’atelier. L’atelier Découverte, une fois 1h30 sans engagement pour découvrir le concept. L’atelier «&nbsp;6 séances&nbsp;» où tu réserves pour 6 cours de 1h30 avec le même groupe et la même formatrice, pour un apprentissage progressif.</p>
+          <p>On propose deux types d’atelier&nbsp;:</p>
+          <ul>
+            <li>L’atelier Découverte&nbsp;: une fois 1h30 sans engagement pour découvrir le concept.</li>
+            <li>L’atelier «&nbsp;8 séances&nbsp;»&nbsp;: tu réserves pour 8 cours de 1h30 avec le même groupe et la même formatrice, pour un apprentissage progressif.</li>
+          </ul>
         </div>
         <div class="events-panel">
           <a title="Réserver vos billets en ligne" href="https://www.billetweb.fr/multi_event.php?multi=46472" class="shop_frame" target="_blank" rel="noopener noreferrer" data-src="https://www.billetweb.fr/multi_event.php?multi=46472" data-max-width="100%" data-initial-height="600" data-scrolling="no" data-id="46472" data-resize="1">Voir les événements et réserver</a>
@@ -336,7 +342,7 @@
 
     <section class="instagram" id="instagram">
       <div class="shell instagram-grid">
-        <div><p class="eyebrow">Réseaux sociaux</p><h2>Ca se passe à nos ateliers</h2><p>Des extraits de séances, les coulisses.</p></div>
+        <div><p class="eyebrow">Réseaux sociaux</p><h2>ca se passe dans nos ateliers</h2><p>Des extraits de séances, les coulisses.</p></div>
         <div class="social-links">
           <a class="instagram-slot" href="https://www.instagram.com/stepbystep.liege/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Step by Step Liège sur Instagram"><strong>Instagram</strong><span>@stepbystep.liege ↗</span></a>
           <a class="instagram-slot" href="https://www.facebook.com/profile.php?id=61555331454548" target="_blank" rel="noopener noreferrer" aria-label="Suivre Step by Step sur Facebook"><strong>Facebook</strong><span>Voir la page ↗</span></a>
