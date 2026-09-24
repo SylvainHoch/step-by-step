@@ -177,6 +177,11 @@
     .events-copy > p { max-width: 520px; margin: 24px 0 0; font-size: 1.08rem; font-weight: 400; }
     .events-copy > p + ul { max-width: 540px; margin: 18px 0 0; padding-left: 22px; font-size: 1.08rem; font-weight: 400; }
     .events-copy li + li { margin-top: 12px; }
+    .venue-note { max-width: 540px; margin-top: 28px; padding: 18px 20px; border: 1px solid rgba(255, 247, 232, .55); border-left: 6px solid var(--yellow); background: rgba(255, 247, 232, .08); }
+    .venue-note h3 { font-family: var(--body); font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+    .venue-note dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; margin: 14px 0 0; font-size: 1rem; }
+    .venue-note dt { font-weight: 600; }
+    .venue-note dd { margin: 0; font-weight: 400; }
     .events .eyebrow::before { background: var(--yellow); }
     .events-panel { min-width: 0; padding: clamp(14px, 2vw, 22px); border: var(--line); background: var(--cream); color: var(--ink); box-shadow: 12px 12px 0 var(--orange); }
     .events-panel iframe { display: block; width: 100% !important; max-width: 100%; min-height: 460px; border: 0; background: white; }
@@ -332,6 +337,14 @@
             <li>L’atelier Découverte&nbsp;: une fois 1h30 sans engagement pour découvrir le concept.</li>
             <li>L’atelier «&nbsp;8 séances&nbsp;»&nbsp;: tu réserves pour 8 cours de 1h30 avec le même groupe et la même formatrice, pour un apprentissage progressif.</li>
           </ul>
+          <aside class="venue-note" aria-label="Informations pratiques sur les ateliers">
+            <h3>Infos pratiques</h3>
+            <dl>
+              <dt>Jour</dt><dd>Mardi</dd>
+              <dt>Horaire</dt><dd>19h–20h30</dd>
+              <dt>Lieu</dt><dd>La Mi'lune SCS, Rue des Maraîchers, Liège, Belgique</dd>
+            </dl>
+          </aside>
         </div>
         <div class="events-panel">
           <a title="Réserver vos billets en ligne" href="https://www.billetweb.fr/multi_event.php?multi=46472" class="shop_frame" target="_blank" rel="noopener noreferrer" data-src="https://www.billetweb.fr/multi_event.php?multi=46472" data-max-width="100%" data-initial-height="460" data-scrolling="no" data-id="46472" data-resize="1">Voir les événements et réserver</a>
