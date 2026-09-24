@@ -23,7 +23,7 @@
       --red: #b92e3a;
       --line: 2px solid var(--ink);
       --shadow: 6px 6px 0 var(--ink);
-      --display: "Arial Black", "Franklin Gothic Heavy", Impact, sans-serif;
+      --display: "Trebuchet MS", "Segoe UI", sans-serif;
       --body: "Trebuchet MS", "Segoe UI", sans-serif;
     }
 
@@ -72,7 +72,7 @@
     .brand-name span { display: block; white-space: nowrap; }
     .brand-name span:nth-child(1) { transform: translateX(16px); }
     .brand-name span:nth-child(2) { transform: translateX(8px); }
-    .nav-links { display: flex; align-items: center; gap: 28px; font-weight: 800; }
+    .nav-links { display: flex; align-items: center; gap: 28px; font-weight: 600; }
     .nav-links a { text-decoration: none; }
     .nav-links a:not(.button):hover { text-decoration: underline 3px var(--orange); text-underline-offset: 5px; }
     .button {
@@ -86,7 +86,7 @@
       background: var(--yellow);
       color: var(--ink);
       box-shadow: 4px 4px 0 var(--ink);
-      font-weight: 900;
+      font-weight: 700;
       text-decoration: none;
       cursor: pointer;
       transition: transform .18s ease, box-shadow .18s ease;
@@ -98,13 +98,13 @@
 
     .hero { padding: 42px 0 64px; position: relative; }
     .hero-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 54px; align-items: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px; font-size: .83rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 38px; height: 4px; background: var(--orange); }
-    h1, h2, h3 { margin: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: -.045em; line-height: .95; }
-    h1 { max-width: 780px; font-size: clamp(3.4rem, 5.25vw, 5.3rem); line-height: .9; }
+    h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: -.035em; line-height: 1; }
+    h1 { max-width: 780px; font-size: clamp(2.9rem, 4.65vw, 4.7rem); line-height: .94; }
     h1 .scribble { position: relative; display: inline-block; color: var(--orange); transform: rotate(-2deg); }
     h1 .scribble::after { content: ""; position: absolute; left: -2%; right: -2%; bottom: -3px; height: 9px; background: var(--yellow); z-index: -1; transform: rotate(1deg); }
-    .hero-copy { max-width: 560px; margin: 24px 0 0; font-size: clamp(1.05rem, 1.45vw, 1.22rem); font-weight: 700; }
+    .hero-copy { max-width: 580px; margin: 24px 0 0; font-size: clamp(1rem, 1.3vw, 1.15rem); font-weight: 400; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 26px; }
 
     .photo-wrap { position: relative; margin: 20px 8px 0 0; }
@@ -114,15 +114,15 @@
     .doodle { position: absolute; left: -43px; bottom: -30px; width: 110px; color: var(--orange); transform: rotate(-13deg); }
 
     .ticker { border-block: var(--line); background: var(--ink); color: var(--cream); }
-    .ticker-track { width: min(1180px, calc(100% - 40px)); margin-inline: auto; display: grid; grid-template-columns: repeat(4, 1fr); font-weight: 900; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.2; text-transform: uppercase; letter-spacing: .03em; }
-    .ticker-track span { min-height: 88px; display: flex; align-items: center; justify-content: center; gap: 11px; padding: 16px 18px; text-align: center; }
+    .ticker-track { width: min(1180px, calc(100% - 40px)); margin-inline: auto; display: grid; grid-template-columns: repeat(4, 1fr); font-weight: 600; font-size: clamp(.88rem, 1.15vw, 1.05rem); line-height: 1.25; text-transform: uppercase; letter-spacing: .025em; }
+    .ticker-track span { min-height: 82px; display: grid; grid-template-columns: 9px 1fr; align-items: center; gap: 12px; padding: 16px 20px; text-align: left; }
     .ticker-track span::before { content: ""; flex: 0 0 auto; width: 9px; height: 9px; background: var(--yellow); transform: rotate(45deg); }
     .ticker-track span + span { border-left: 1px solid rgba(255, 247, 232, .32); }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 
     section { padding: 82px 0; }
     .section-head { margin-bottom: 52px; }
-    .section-head h2 { max-width: 980px; font-size: clamp(2.5rem, 5.5vw, 5.5rem); }
+    .section-head h2 { max-width: 980px; font-size: clamp(2.2rem, 4.6vw, 4.6rem); }
     .warm { background: var(--orange); color: #fff; border-bottom: var(--line); }
     .warm .eyebrow::before { background: var(--yellow); }
     .warm h2 { color: var(--cream); }
@@ -132,8 +132,8 @@
     .card:nth-child(2) { transform: translateY(18px) rotate(-1deg); background: var(--yellow); }
     .card:nth-child(3) { transform: rotate(1deg); }
     .card-number { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: white; font-family: var(--display); margin-bottom: 34px; }
-    .card h3 { font-size: clamp(1.6rem, 3vw, 2.35rem); }
-    .card p { margin: 17px 0 0; font-weight: 700; }
+    .card h3 { font-size: clamp(1.45rem, 2.5vw, 2.05rem); }
+    .card p { margin: 17px 0 0; font-weight: 400; }
 
     .trainer { background: var(--cream); border-bottom: var(--line); }
     .trainer-grid { display: grid; grid-template-columns: .88fr 1.12fr; gap: clamp(46px, 7vw, 86px); align-items: center; }
@@ -142,53 +142,53 @@
     .trainer-gallery img:first-child { grid-column: 1 / -1; object-position: center 32%; box-shadow: 10px 10px 0 var(--orange); }
     .trainer-gallery img:nth-child(2) { object-position: center 38%; }
     .trainer-gallery img:nth-child(3) { object-position: center 38%; }
-    .trainer h2 { font-size: clamp(3.2rem, 7vw, 7rem); }
-    .trainer-text { max-width: 650px; margin: 24px 0 0; font-size: 1.12rem; font-weight: 700; }
+    .trainer h2 { font-size: clamp(2.8rem, 5.8vw, 5.8rem); }
+    .trainer-text { max-width: 650px; margin: 24px 0 0; font-size: 1.08rem; font-weight: 400; }
     .trainer-text + .trainer-text { margin-top: 16px; }
 
     .instagram { padding: 58px 0; background: var(--yellow); border-bottom: var(--line); }
     .instagram-grid { display: grid; grid-template-columns: 1fr auto; gap: 42px; align-items: center; }
-    .instagram h2 { font-size: clamp(2.5rem, 5vw, 4.8rem); }
-    .instagram p { max-width: 680px; margin: 16px 0 0; font-size: 1.08rem; font-weight: 700; }
+    .instagram h2 { font-size: clamp(2.2rem, 4.2vw, 4rem); }
+    .instagram p { max-width: 680px; margin: 16px 0 0; font-size: 1.04rem; font-weight: 400; }
     .social-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 18px; }
     .instagram-slot { min-width: 260px; padding: 24px; border: var(--line); background: var(--cream); box-shadow: var(--shadow); text-align: center; transform: rotate(1deg); }
     a.instagram-slot { text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
     a.instagram-slot:hover { transform: translate(2px, 2px) rotate(1deg); box-shadow: 3px 3px 0 var(--ink); }
     .instagram-slot:nth-child(2) { background: white; transform: rotate(-1deg); }
     a.instagram-slot:nth-child(2):hover { transform: translate(2px, 2px) rotate(-1deg); }
-    .instagram-slot strong { display: block; font-family: var(--display); font-size: 1.25rem; text-transform: uppercase; }
-    .instagram-slot span { display: block; margin-top: 8px; font-weight: 700; }
+    .instagram-slot strong { display: block; font-family: var(--display); font-size: 1.15rem; font-weight: 600; text-transform: uppercase; }
+    .instagram-slot span { display: block; margin-top: 8px; font-weight: 400; }
 
     .faq { background: var(--cream); border-bottom: var(--line); }
     .faq-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 70px; align-items: start; }
-    .faq h2 { position: sticky; top: 28px; font-size: clamp(3rem, 6vw, 6rem); }
+    .faq h2 { position: sticky; top: 28px; font-size: clamp(2.6rem, 5vw, 5rem); }
     details { border-top: var(--line); }
     details:last-child { border-bottom: var(--line); }
-    summary { display: flex; justify-content: space-between; gap: 24px; padding: 24px 0; cursor: pointer; list-style: none; font-family: var(--display); font-size: clamp(1.15rem, 2vw, 1.6rem); line-height: 1.12; text-transform: uppercase; }
+    summary { display: flex; justify-content: space-between; gap: 24px; padding: 24px 0; cursor: pointer; list-style: none; font-family: var(--body); font-size: clamp(1.08rem, 1.7vw, 1.4rem); font-weight: 400; line-height: 1.25; text-transform: none; }
     summary::-webkit-details-marker { display: none; }
     summary::after { content: "+"; flex: 0 0 auto; color: var(--orange); font-size: 1.5em; line-height: .75; }
     details[open] summary::after { content: "−"; }
-    details p { max-width: 720px; margin: -4px 0 26px; font-size: 1.05rem; font-weight: 700; }
+    details p { max-width: 720px; margin: -4px 0 26px; font-size: 1.02rem; font-weight: 400; }
 
     .events { background: var(--ink); color: white; border-bottom: var(--line); }
     .events-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; align-items: start; }
     .events-copy { position: sticky; top: 28px; }
-    .events h2 { font-size: clamp(3rem, 6vw, 6rem); color: var(--cream); }
-    .events-copy > p:last-child { max-width: 480px; margin: 24px 0 0; font-size: 1.15rem; font-weight: 700; }
+    .events h2 { font-size: clamp(2.6rem, 5vw, 5rem); color: var(--cream); }
+    .events-copy > p:last-child { max-width: 520px; margin: 24px 0 0; font-size: 1.08rem; font-weight: 400; }
     .events .eyebrow::before { background: var(--yellow); }
     .events-panel { min-width: 0; padding: clamp(16px, 3vw, 28px); border: var(--line); background: var(--cream); color: var(--ink); box-shadow: 12px 12px 0 var(--orange); }
     .events-panel iframe { display: block; width: 100% !important; max-width: 100%; min-height: 600px; border: 0; background: white; }
-    .events-panel .shop_frame { display: flex; align-items: center; justify-content: space-between; min-height: 68px; padding: 18px 20px; border: var(--line); background: var(--yellow); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); font-weight: 900; text-decoration: none; }
+    .events-panel .shop_frame { display: flex; align-items: center; justify-content: space-between; min-height: 68px; padding: 18px 20px; border: var(--line); background: var(--yellow); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); font-weight: 700; text-decoration: none; }
     .events-panel .shop_frame::after { content: "↗"; font-size: 1.35rem; }
-    .events-note { margin: 18px 0 0; font-size: .86rem; font-weight: 700; }
+    .events-note { margin: 18px 0 0; font-size: .86rem; font-weight: 400; }
 
     .signup { padding: 70px 0; }
     .signup-box { display: grid; grid-template-columns: 1fr 1fr; border: var(--line); background: var(--ink); color: white; box-shadow: 12px 12px 0 var(--orange); }
     .signup-copy { padding: clamp(35px, 6vw, 72px); }
-    .signup h2 { font-size: clamp(2.8rem, 5.3vw, 5.5rem); }
-    .signup-copy p { max-width: 520px; font-size: 1.15rem; font-weight: 700; }
+    .signup h2 { font-size: clamp(2.4rem, 4.5vw, 4.6rem); }
+    .signup-copy p { max-width: 520px; font-size: 1.08rem; font-weight: 400; }
     form { padding: clamp(35px, 6vw, 72px); background: var(--cream); color: var(--ink); display: grid; gap: 20px; }
-    label { display: grid; gap: 8px; font-weight: 900; }
+    label { display: grid; gap: 8px; font-weight: 600; }
     input { width: 100%; border: var(--line); background: white; padding: 14px 15px; min-height: 52px; color: var(--ink); }
     form .button { margin-top: 4px; width: fit-content; }
     .form-note { margin: 0; font-size: .82rem; }
@@ -200,17 +200,17 @@
 
     footer { padding: 78px 0 28px; }
     .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 48px; padding-bottom: 46px; border-bottom: var(--line); }
-    .footer-top strong { display: block; font-family: var(--display); font-size: clamp(2.5rem, 6vw, 6rem); line-height: .85; text-transform: uppercase; }
+    .footer-top strong { display: block; font-family: var(--display); font-size: clamp(2.2rem, 5vw, 5rem); font-weight: 600; line-height: .9; text-transform: uppercase; }
     .contact-links { display: grid; gap: 12px; justify-items: end; padding-top: 8px; }
-    .contact-links a { font-weight: 900; text-underline-offset: 5px; }
-    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; font-size: .82rem; font-weight: 800; }
+    .contact-links a { font-weight: 600; text-underline-offset: 5px; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; font-size: .82rem; font-weight: 400; }
 
     @media (max-width: 860px) {
       .nav-links a:not(.button) { display: none; }
       .hero { padding-top: 24px; }
       .hero-grid, .trainer-grid, .instagram-grid, .events-grid, .faq-grid, .signup-box { grid-template-columns: 1fr; }
       .hero-grid { gap: 30px; }
-      h1 { font-size: clamp(3.2rem, 15vw, 6.4rem); }
+      h1 { font-size: clamp(2.8rem, 13vw, 5.4rem); }
       .photo-frame img { height: 520px; }
       .sticker { right: -10px; width: 112px; }
       section { padding: 74px 0; }
@@ -238,7 +238,7 @@
       .doodle { display: none; }
       .trainer-gallery { grid-template-rows: 330px 120px; }
       .ticker-track { width: min(100% - 24px, 1180px); grid-template-columns: 1fr; }
-      .ticker-track span { min-height: 58px; justify-content: flex-start; padding: 12px 6px; text-align: left; }
+      .ticker-track span { min-height: 58px; padding: 12px 6px; text-align: left; }
       .ticker-track span:nth-child(even) { border-left: 0; }
       .ticker-track span + span { border-top: 1px solid rgba(255, 247, 232, .32); }
       .social-links, .instagram-slot { width: 100%; }
@@ -255,10 +255,10 @@
     <nav class="shell" aria-label="Navigation principale">
       <a class="brand" href="#top" aria-label="Step by Step, accueil"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="brand-name"><span>Step</span><span>By</span><span>Step</span></span></a>
       <div class="nav-links">
-        <a href="#atelier">L’atelier</a>
-        <a href="#clara">La prof</a>
-        <a href="#contact">Contact</a>
-        <a class="button" href="#evenements">Voir les dates <span aria-hidden="true">↘</span></a>
+        <a href="#atelier">Le Concept</a>
+        <a href="#clara">La formatrice</a>
+        <a href="#contact">Contacter</a>
+        <a class="button" href="#evenements">Voir les ateliers <span aria-hidden="true">↘</span></a>
       </div>
     </nav>
   </header>
@@ -268,7 +268,7 @@
       <div class="shell hero-grid">
         <div>
           <h1>Et si tu dansais comme tu le <span class="scribble">voulais&nbsp;?</span></h1>
-          <p class="hero-copy">Des ateliers décontractés pour oser bouger, découvrir ce qui te plaît et te sentir libre quand la musique démarre.</p>
+          <p class="hero-copy">Découvre une nouvelle façon d’apprendre à danser, sans chorégraphie, dans une ambiance décontractée, sur tout type de musique.</p>
           <div class="hero-actions">
             <a class="button orange" href="#evenements">Voir les ateliers <span aria-hidden="true">↘</span></a>
           </div>
@@ -324,9 +324,8 @@
     <section class="events" id="evenements">
       <div class="shell events-grid">
         <div class="events-copy">
-          <p class="eyebrow">Prochains rendez-vous</p>
-          <h2>À vous de jouer.</h2>
-          <p>Choisissez l’atelier qui vous convient et réservez directement votre place.</p>
+          <h2>Réservation</h2>
+          <p>On propose deux types d’atelier. L’atelier Découverte, une fois 1h30 sans engagement pour découvrir le concept. L’atelier «&nbsp;6 séances&nbsp;» où tu réserves pour 6 cours de 1h30 avec le même groupe et la même formatrice, pour un apprentissage progressif.</p>
         </div>
         <div class="events-panel">
           <a title="Réserver vos billets en ligne" href="https://www.billetweb.fr/multi_event.php?multi=46472" class="shop_frame" target="_blank" rel="noopener noreferrer" data-src="https://www.billetweb.fr/multi_event.php?multi=46472" data-max-width="100%" data-initial-height="600" data-scrolling="no" data-id="46472" data-resize="1">Voir les événements et réserver</a>
@@ -337,7 +336,7 @@
 
     <section class="instagram" id="instagram">
       <div class="shell instagram-grid">
-        <div><p class="eyebrow">Réseaux sociaux</p><h2>Les ateliers en mouvement.</h2><p>Des extraits de séances, les coulisses et les prochaines dates.</p></div>
+        <div><p class="eyebrow">Réseaux sociaux</p><h2>Ca se passe à nos ateliers</h2><p>Des extraits de séances, les coulisses.</p></div>
         <div class="social-links">
           <a class="instagram-slot" href="https://www.instagram.com/stepbystep.liege/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Step by Step Liège sur Instagram"><strong>Instagram</strong><span>@stepbystep.liege ↗</span></a>
           <a class="instagram-slot" href="https://www.facebook.com/profile.php?id=61555331454548" target="_blank" rel="noopener noreferrer" aria-label="Suivre Step by Step sur Facebook"><strong>Facebook</strong><span>Voir la page ↗</span></a>
@@ -362,16 +361,8 @@
             <p>Non. Pour l’instant, nos ateliers portent sur un apprentissage en solo, tout en profitant de l’énergie du groupe.</p>
           </details>
           <details>
-            <summary>Est-ce que je vais devoir danser devant tout le monde&nbsp;?</summary>
-            <p>Non. Tu danses principalement en solo, au milieu du groupe. Tu peux adapter chaque proposition et avancer à ton rythme.</p>
-          </details>
-          <details>
             <summary>Sur quels types de musique danse-t-on&nbsp;?</summary>
             <p>Sur des morceaux variés : pop, funk, disco, afro, rock ou électro. Le but n’est pas d’apprendre un style, mais de trouver du plaisir sur différentes musiques.</p>
-          </details>
-          <details>
-            <summary>Comment faut-il s’habiller&nbsp;?</summary>
-            <p>Avec une tenue confortable qui te laisse libre de bouger et des chaussures dans lesquelles tu te sens bien. Rien de technique n’est nécessaire.</p>
           </details>
           <details>
             <summary>En quoi êtes-vous différents d’une école de danse classique&nbsp;?</summary>
